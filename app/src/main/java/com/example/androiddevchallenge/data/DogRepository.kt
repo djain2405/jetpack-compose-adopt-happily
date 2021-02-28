@@ -4,6 +4,10 @@ class DogRepository {
     private val listOfDogs = listOf(
         bing, bocce, dante, melva, pia, pebbles, mona
     )
+
+    suspend fun getDogs(): List<Dog> {
+        return listOfDogs
+    }
 }
 
 val bing = Dog(
