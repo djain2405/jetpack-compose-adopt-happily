@@ -21,6 +21,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.dogListing.DogListingScreen
 import com.example.androiddevchallenge.dogListing.DogListingViewModel
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -43,8 +46,10 @@ class MainActivity : AppCompatActivity() {
 @ExperimentalFoundationApi
 @Composable
 fun MyApp(dogsListViewModel: DogListingViewModel) {
-
-    DogListingScreen(viewModel = dogsListViewModel)
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = "dogsList") {
+        composable("dogsList") { DogListingScreen(viewModel = dogsListViewModel) }
+    }
 }
 
 // @Preview("Light Theme", widthDp = 360, heightDp = 640)
