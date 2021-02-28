@@ -29,11 +29,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
+import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi
 @Composable
@@ -59,6 +61,15 @@ fun DogListingScreen(viewModel: DogListingViewModel) {
                             border = BorderStroke(2.dp, MaterialTheme.colors.secondaryVariant)
                         ) {
                             Column {
+                                dog.imageUrl?.let {
+                                    CoilImage(
+                                        fadeIn = true,
+                                        data = it,
+                                        contentDescription = null,
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier.height(180.dp)
+                                    )
+                                }
                                 Text(
                                     dog.name,
                                     style = MaterialTheme.typography.h6,
