@@ -60,7 +60,8 @@ fun MyApp(dogsListViewModel: DogListingViewModel, dogDetailViewModel: DogDetailV
         ) { backStackEntry ->
             DogDetailScreen(
                 viewModel = dogDetailViewModel,
-                dogId = backStackEntry.arguments?.getString("dogId")!!
+                dogId = backStackEntry.arguments?.getString("dogId")!!,
+                navController = navController
             )
         }
     }

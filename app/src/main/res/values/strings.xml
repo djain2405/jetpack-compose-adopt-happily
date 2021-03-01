@@ -11,4 +11,5 @@
       -->
     <string name="app_name">AndroidDevChallenge</string>
     <string name="adopt_happily">Adopt Happily!</string>
+    <string name="adopt_me_title">Adopt Me!</string>
 </resources>

@@ -17,7 +17,7 @@ package com.example.androiddevchallenge.data
 
 class DogRepository {
     private val listOfDogs = listOf(
-        bing, bocce, dante, melva, pia, pebbles, mona
+        boomer, bronson, dante, melva, kiki, pebbles, mona
     )
 
     suspend fun getDogs(): List<Dog> {
@@ -29,26 +29,29 @@ class DogRepository {
     }
 }
 
-val bing = Dog(
+val boomer = Dog(
     "1",
-    "Bing",
+    "Boomer",
     "2 m",
     "I’m a curious pup looking for adopters who will commit to continuing my puppy education and socialization. Ready for a home with snuggles and playtime and lots of puppy-love, I would love to attend puppy socials and meet other young dogs to grow in skills and confidence. Contact the adoption center to get more information about adopting me!",
-    "8 lbs; 12 oz",
-    Gender.Female,
-    "Mix Terrier, American Pit Bull",
-    "https://g.petango.com/photos/1145/b8342447-712b-4535-85df-f13f865b0dde.jpg"
-)
-
-val bocce = Dog(
-    "2",
-    "Bocce",
-    "2 m",
-    "I’m a curious pup looking for adopters who will commit to continuing my puppy education and socialization. Ready for a home with snuggles and playtime and lots of puppy-love, I would love to attend puppy socials and meet other young dogs to grow in skills and confidence. Contact the adoption center to get more information about adopting me!",
-    "11 lbs",
+    "2 lbs; 3 oz",
     Gender.Male,
     "Mix Terrier, American Pit Bull",
-    "https://g.petango.com/photos/1145/599e557d-a321-4eca-92db-992df7c5a89e.jpg"
+    "https://g.petango.com/photos/1145/0eab765c-ce3e-402e-85fe-08d0b89e8211.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46478164/"
+
+)
+
+val bronson = Dog(
+    "2",
+    "Bronson",
+    "2 m",
+    "I’m a curious pup looking for adopters who will commit to continuing my puppy education and socialization. Ready for a home with snuggles and playtime and lots of puppy-love, I would love to attend puppy socials and meet other young dogs to grow in skills and confidence. Contact the adoption center to get more information about adopting me!",
+    "2 lbs; 3 oz",
+    Gender.Male,
+    "Mix Terrier, American Pit Bull",
+    "https://g.petango.com/photos/1145/78eb39b0-157a-4540-b39b-c8267400a056.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46478169/"
 )
 
 val dante = Dog(
@@ -59,7 +62,8 @@ val dante = Dog(
     "55 lbs; 1 oz",
     Gender.Male,
     "Hound Mix",
-    "https://g.petango.com/photos/1145/caec4f1e-b886-4019-ab6e-d203a3de1de9.jpg"
+    "https://g.petango.com/photos/1145/caec4f1e-b886-4019-ab6e-d203a3de1de9.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46676105/"
 )
 
 val melva = Dog(
@@ -70,18 +74,20 @@ val melva = Dog(
     "4 lbs; 6 oz",
     Gender.Female,
     "Chihuahua, Short Coat Mix",
-    "https://g.petango.com/photos/1145/d027e518-4d38-4533-afdf-749b1e8b76c3.jpg"
+    "https://g.petango.com/photos/1145/d027e518-4d38-4533-afdf-749b1e8b76c3.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46685217/"
 )
 
-val pia = Dog(
+val kiki = Dog(
     "5",
-    "Pia",
-    "1 y; 1 m",
-    "This sweet, perky girl is called Pia. She is an outgoing girl who likes to have fun and be around people. Pia loves her time in the park where she can run around showing off her silly side for all to see. She is very much a lap dog and she has yet to meet one she will turn down. There is no Goldilocks in her and she thinks they all are just right. She loves life and you are going to love her. If you are interested in meeting Pia, please fill out the online pre-adoption form today.",
-    "11 lbs",
+    "Kiki",
+    "8 y",
+    "My name is Kiki. I am a big and rather strong girl who needs a new forever home. People comment on how pretty I am when they meet me. I try not to blush. I am quite friendly and snuggly with people. There aren’t enough cuddles out there to satisfy me. I am kind of like a huge teddy bear, I guess. I am a good walker and I love running around outside in the park acting silly. I do enjoy my toys as well. I could be lounging with you on your couch soon and I promise to leave some room for you. If you are interested in meeting me, please fill out the online pre-adoption form today.",
+    "101 lbs; 6 oz",
     Gender.Female,
-    "Chihuahua, Short Coat Mix",
-    "https://g.petango.com/photos/1145/37254b01-74f5-4a83-b9ea-f8f51dd00e37.jpg"
+    "Mix Shepherd",
+    "https://g.petango.com/photos/1145/2147f07d-6feb-45e8-9631-ad51ae9b57ed.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46673010/"
 )
 
 val pebbles = Dog(
@@ -92,7 +98,8 @@ val pebbles = Dog(
     "79 lbs; 6 oz",
     Gender.Female,
     "Boxer Mix",
-    "https://g.petango.com/photos/1145/ac00f7ae-2c8d-4c05-a7c5-d928025fb929.jpg"
+    "https://g.petango.com/photos/1145/ac00f7ae-2c8d-4c05-a7c5-d928025fb929.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46675963/"
 )
 
 val mona = Dog(
@@ -103,5 +110,6 @@ val mona = Dog(
     "50 lbs; 11 oz",
     Gender.Female,
     "Australian Cattle Dog Mix",
-    "https://g.petango.com/photos/1145/9e156817-1098-4261-9c42-a7b85bebdcb9.jpg"
+    "https://g.petango.com/photos/1145/9e156817-1098-4261-9c42-a7b85bebdcb9.jpg",
+    "https://www.sfspca.org/adoptions/pet-details/46675918/"
 )

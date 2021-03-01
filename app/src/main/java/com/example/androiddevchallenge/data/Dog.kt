@@ -23,7 +23,8 @@ data class Dog(
     val weight: String?,
     val gender: Gender? = Gender.NotDisclosed,
     val breed: String?,
-    val imageUrl: String?
+    val imageUrl: String?,
+    val adoptUrl: String?
 )
 
 enum class Gender {
