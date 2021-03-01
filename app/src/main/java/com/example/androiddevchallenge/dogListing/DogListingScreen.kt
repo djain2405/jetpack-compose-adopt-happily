@@ -29,6 +29,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -45,13 +46,16 @@ import dev.chrisbanes.accompanist.coil.CoilImage
 fun DogListingScreen(viewModel: DogListingViewModel, navController: NavController) {
     val dogs = viewModel.dogsList.observeAsState(initial = emptyList())
     Surface(color = MaterialTheme.colors.background) {
-        Column {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Text(
                 text = stringResource(id = R.string.adopt_happily),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .height(80.dp)
+                    .height(48.dp)
+                    .padding(12.dp)
             )
             LazyVerticalGrid(
                 cells = GridCells.Fixed(2),

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp(dogsListViewModel, dogDetailViewModel)
+                DogApp(dogsListViewModel, dogDetailViewModel)
             }
         }
     }
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @ExperimentalFoundationApi
 @Composable
-fun MyApp(dogsListViewModel: DogListingViewModel, dogDetailViewModel: DogDetailViewModel) {
+fun DogApp(dogsListViewModel: DogListingViewModel, dogDetailViewModel: DogDetailViewModel) {
     val navController = rememberNavController()
     NavHost(navController, startDestination = "dogsList") {
         composable("dogsList") { DogListingScreen(viewModel = dogsListViewModel, navController = navController) }
@@ -66,19 +66,3 @@ fun MyApp(dogsListViewModel: DogListingViewModel, dogDetailViewModel: DogDetailV
         }
     }
 }
-
-// @Preview("Light Theme", widthDp = 360, heightDp = 640)
-// @Composable
-// fun LightPreview() {
-//    MyTheme {
-//        MyApp(dogsListViewModel)
-//    }
-// }
-//
-// @Preview("Dark Theme", widthDp = 360, heightDp = 640)
-// @Composable
-// fun DarkPreview() {
-//    MyTheme(darkTheme = true) {
-//        MyApp(dogsListViewModel)
-//    }
-// }

@@ -63,6 +63,7 @@ fun DogDetailScreen(
     }
     Surface(color = MaterialTheme.colors.background) {
         val dogState = viewModel.dogData.observeAsState()
+
         if (dogState.value != null) {
             val dog = dogState.value
             Column(
