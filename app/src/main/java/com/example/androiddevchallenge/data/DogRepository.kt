@@ -23,6 +23,10 @@ class DogRepository {
     suspend fun getDogs(): List<Dog> {
         return listOfDogs
     }
+
+    suspend fun getDogById(id: String): Dog? {
+        return listOfDogs.find { it.id == id }
+    }
 }
 
 val bing = Dog(

@@ -21,22 +21,27 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.dogDetail.DogDetailScreen
+import com.example.androiddevchallenge.dogDetail.DogDetailViewModel
 import com.example.androiddevchallenge.dogListing.DogListingScreen
 import com.example.androiddevchallenge.dogListing.DogListingViewModel
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
     private val dogsListViewModel by viewModels<DogListingViewModel>()
+    private val dogDetailViewModel by viewModels<DogDetailViewModel>()
 
     @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp(dogsListViewModel)
+                MyApp(dogsListViewModel, dogDetailViewModel)
             }
         }
     }
@@ -45,10 +50,19 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @ExperimentalFoundationApi
 @Composable
-fun MyApp(dogsListViewModel: DogListingViewModel) {
+fun MyApp(dogsListViewModel: DogListingViewModel, dogDetailViewModel: DogDetailViewModel) {
     val navController = rememberNavController()
     NavHost(navController, startDestination = "dogsList") {
-        composable("dogsList") { DogListingScreen(viewModel = dogsListViewModel) }
+        composable("dogsList") { DogListingScreen(viewModel = dogsListViewModel, navController = navController) }
+        composable(
+            "dogDetail/{dogId}",
+            arguments = listOf(navArgument("dogId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            DogDetailScreen(
+                viewModel = dogDetailViewModel,
+                dogId = backStackEntry.arguments?.getString("dogId")!!
+            )
+        }
     }
 }
 

@@ -17,6 +17,7 @@ package com.example.androiddevchallenge.dogListing
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -34,12 +35,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi
 @Composable
-fun DogListingScreen(viewModel: DogListingViewModel) {
+fun DogListingScreen(viewModel: DogListingViewModel, navController: NavController) {
     val dogs = viewModel.dogsList.observeAsState(initial = emptyList())
     Surface(color = MaterialTheme.colors.background) {
         Column {
@@ -57,8 +60,12 @@ fun DogListingScreen(viewModel: DogListingViewModel) {
                         val dog = dogs.value[index]
                         Card(
                             modifier = Modifier
-                                .padding(8.dp),
+                                .padding(8.dp)
+                                .clickable {
+                                    navController.navigate("dogDetail/${dog.id}")
+                                },
                             border = BorderStroke(2.dp, MaterialTheme.colors.secondaryVariant)
+
                         ) {
                             Column {
                                 dog.imageUrl?.let {
