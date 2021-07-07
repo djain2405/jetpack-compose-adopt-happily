@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.dogDetail
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -50,7 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.androiddevchallenge.R
-import dev.chrisbanes.accompanist.coil.CoilImage
+import com.google.accompanist.coil.rememberCoilPainter
 
 @Composable
 fun DogDetailScreen(
@@ -70,12 +71,15 @@ fun DogDetailScreen(
                 modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
                 dog?.imageUrl?.let {
-                    CoilImage(
-                        data = it,
+                    Image(
+                        painter = rememberCoilPainter(
+                            request = it,
+                            fadeIn = true
+                        ),
                         contentDescription = null,
-                        fadeIn = true,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
+                            .fillMaxWidth()
                             .height(300.dp)
                             .clip(
                                 RoundedCornerShape(

@@ -17,6 +17,7 @@ package com.example.androiddevchallenge.dogListing
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -37,9 +38,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
-import dev.chrisbanes.accompanist.coil.CoilImage
+import com.google.accompanist.coil.rememberCoilPainter
+
 
 @ExperimentalFoundationApi
 @Composable
@@ -73,9 +74,11 @@ fun DogListingScreen(viewModel: DogListingViewModel, navController: NavControlle
                         ) {
                             Column {
                                 dog.imageUrl?.let {
-                                    CoilImage(
-                                        fadeIn = true,
-                                        data = it,
+                                    Image(
+                                        painter = rememberCoilPainter(
+                                            request = it,
+                                            fadeIn = true
+                                        ),
                                         contentDescription = null,
                                         contentScale = ContentScale.Crop,
                                         modifier = Modifier.height(180.dp)
