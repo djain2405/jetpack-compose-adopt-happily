@@ -41,7 +41,6 @@ import androidx.navigation.NavController
 import com.example.androiddevchallenge.R
 import com.google.accompanist.coil.rememberCoilPainter
 
-
 @ExperimentalFoundationApi
 @Composable
 fun DogListingScreen(viewModel: DogListingViewModel, navController: NavController) {
