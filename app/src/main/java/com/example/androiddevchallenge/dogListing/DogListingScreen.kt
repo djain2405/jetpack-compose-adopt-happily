@@ -49,14 +49,7 @@ fun DogListingScreen(viewModel: DogListingViewModel, navController: NavControlle
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = stringResource(id = R.string.adopt_happily),
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .height(48.dp)
-                    .padding(12.dp)
-            )
+            PageHeader(R.string.adopt_happily)
             LazyVerticalGrid(
                 cells = GridCells.Fixed(2),
                 content = {
@@ -103,4 +96,16 @@ fun DogListingScreen(viewModel: DogListingViewModel, navController: NavControlle
             )
         }
     }
+}
+
+@Composable
+fun PageHeader(titleResId: Int) {
+    Text(
+        text = stringResource(id = titleResId),
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .height(48.dp)
+            .padding(12.dp)
+    )
 }
